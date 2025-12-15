@@ -1,23 +1,41 @@
-# [Intel 8기] 알파카
+# 🚗 [Intel 8기] 알파카 (AlphaCar)
+### 교통 및 주변 상황을 인식하는 스마트 자동차 시스템
 
-## About Project
+> 본 프로젝트는 차량 카메라 기반 주변 상황 인식과 위험 예측을 통해  
+> 안전한 차량 제어 및 경고를 수행하는 통합 시스템입니다.
 
-> ###  <br /> 교통 및 주변 상황을 인식하는 스마트 시스템
->
-> ### 개발기간: 2025.09.12 ~ 2025.10.22
+---
 
-## 📦주요 기능
+## 📌 프로젝트 개요
+
+**알파카(AlphaCar)**는 차량에 장착된 카메라 및 센서를 통해  
+주변 환경을 실시간으로 인식하고, 위험 상황을 사전에 예측하여  
+**운전 보조 및 위험 경고 기능**을 제공하는 스마트 자동차 시스템입니다.
+
+- 프로젝트 기간: **2025.09.12 ~ 2025.10.22**
+- 참여: Intel Edge AI SW 아카데미 8기
+- 팀 구성: 김성준 / 오정선 / 김경민 / 김영교 / 허진경
+
+---
+
+## 🔍 주요 기능
 
 <img src=https://github.com/user-attachments/assets/d3dfe0cb-f83b-430c-a839-fa51dcb1e784 width="500"/>
 <img src=https://github.com/user-attachments/assets/047c481b-90bd-446f-99c7-6dd43247493c width="500"/>
 
 <img src="https://github.com/user-attachments/assets/995aeaa4-8e05-4e69-aebe-60db998b305d" width="650"/>
 
-### ⭐️ CCTV에서의 사고 차량 인식
+### 📸 주변 상황 인식
+- CCTV 및 차량 내 카메라 영상 기반 상황 모니터링
+- 객체(차량/보행자/신호등/위험요소) 인식
 
-### ⭐️ 차량 카메라에서 주변 상황 인식 및 위험 예측
+### 🔮 위험 예측
+- 프레임 단위 주변 상태 분석을 통한 위험 상황 탐지
+- 위험 판단 시 경고 알림
 
-### ⭐️ 클러스터를 통한 차량 제어 및 위험 경고
+### 🚙 차량 제어 보조
+- 실시간 인식 결과를 기반으로 클러스터 통신
+- 위험 구간 접근 시 시각 경고 또는 제어 권고
 
 ## 🤝 개발팀 소개
 
@@ -84,3 +102,33 @@
     ├── logs/                         # 주행 기록, 센서 데이터 로그
     ├── images/                       # 수집된 이미지 데이터
     └── models/                       # 학습된 AI 모델 (필요 시)```
+
+### 🧩 구성 요소 설명
+- **carla_simulator/**  
+  CARLA 시뮬레이션 환경 설정 및 시나리오 스크립트
+
+- **ros_ws/**  
+  ROS2 기반 노드들  
+  - vehicle_control: 차량 제어 노드
+  - sensor_interface: 센서 데이터 수집
+  - ros_bridge: 시뮬레이터 ↔ ROS 통신
+
+- **raspberry_pi/**  
+  실제 하드웨어 제어 스크립트 및 센서 연동
+
+- **data/**  
+  주행 로그, 이미지, AI 모델 파일
+
+### 🧩 Software
+- **ROS2** 기반 노드 통신
+- **Docker / docker-compose** 환경 구성
+- Python (AI/영상 처리)
+- C / C++ (임베디드 연동 및 로직)
+
+### 🚗 Simulator / Tools
+- **CARLA Simulator** (자율주행 시뮬레이션)
+- gRPC / WebSocket 통신
+
+### 📡 Hardware / Edge
+- **Raspberry Pi**
+- 센서 인터페이스 모듈
